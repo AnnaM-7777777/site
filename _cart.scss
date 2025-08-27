@@ -1,0 +1,220 @@
+.top-cart {
+    background-image: url(img-top/topCart.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 128px;
+    margin-bottom: 64px;
+}
+
+
+.cart {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: $gap;
+    margin-bottom: 64px;
+}
+
+.cart-content {        
+    height: 556px;
+    grid-column: span 8;
+
+    &__name-box {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 14px;
+        padding-right: 27px;
+
+        p {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 100%;
+            vertical-align: middle;
+        }
+    }
+
+    &__item {
+        display: grid;
+        grid-template-columns: 173px 276px 1fr;
+        gap: $gap;
+        border-top: 0.5px solid #CACDD8;
+        padding-top: 25px;
+        padding-bottom: 32px;
+    }
+    
+    &__item_2 {
+        padding-top: 32px;
+        padding-bottom: 50px;
+    }
+    
+    &__btn-box {
+        display: flex;
+        gap: 7px;
+    }
+
+    &__img {
+        width: 173px;
+        height: 173px;
+        overflow: hidden;
+        text-align: right;
+
+        & img {
+            height: 100%;
+        }
+    }      
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        h4 {
+            font-weight: 500;
+            font-size: 24px;
+        }
+
+        p {
+            font-weight: 400;
+            font-size: 14px;
+            color: #888888;
+        }
+
+        span {
+            font-weight: 500;
+            font-size: 16px;
+            color: #050505;
+        }
+
+        &-link {
+            display: flex;
+            column-gap: 30px;
+            align-items: center;
+            height: 29px;
+
+            a {
+                font-weight: 400;
+                font-size: 14px;
+                vertical-align: middle;
+                color: #000000;
+            }
+        }
+    }
+
+    &__input-number {        
+        display: flex;
+        justify-content: flex-end;
+
+        input[type="number"] {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            width: 71px;
+            height: 51px;
+            outline: none;
+            border: none;
+            border-radius: 6px;
+            background-color: #F7F6F6;
+            text-align: center;
+            vertical-align: middle;
+        }
+    }
+
+    &__btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        width: 200px;
+        height: 37px;
+        border: 1px solid #000000;
+        border-radius: 50px;
+        background-color: transparent;
+        text-decoration: none;
+        color: #000000;
+
+        &:hover {
+            color: $color-text;
+            background-color: #000000;    
+            border: 1px solid #000000;
+            cursor: pointer;
+        }
+    }
+}     
+
+.cart-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-column: span 4;
+    width: 379px;
+    height: 556px;
+    padding-top: 42px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    background: #F7F6F6;
+
+    &__h3 {
+        font-weight: 700;
+        font-size: 24px;
+        text-align: center;
+        vertical-align: middle;
+        margin-bottom: 35px;
+    }
+
+    &__input-box {
+        display: flex;
+        flex-direction: column;
+        gap: 44px;
+        margin-left: 27px;
+        margin-right: 64px;
+        margin-bottom: 64px;
+        width: 288px;
+    }
+
+    &__input {
+        border: none;
+        border-bottom: 1px solid #CACDD8;
+        background-color: transparent;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        width: 100%;
+        outline: none;
+    }
+
+    &__text {
+        font-weight: 400;
+        font-size: 24px;
+        margin-bottom: 18px;
+
+        &-style {
+            font-weight: 500;
+        }
+    }    
+
+    &__btn {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        width: 290px;
+        height: 41px;
+        border: 1px solid #040404;
+        border-radius: 20px;            
+        background-color: transparent;
+
+        &:hover {
+            color: $color-text;
+            background-color: #000000;    
+            border: 1px solid #000000;
+            cursor: pointer;
+        }
+    }
+}
+
+   
+    
+

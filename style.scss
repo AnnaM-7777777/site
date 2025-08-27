@@ -1,0 +1,649 @@
+@import 'vars';
+@import 'catalog';
+@import 'cart';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.all-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+/*__________ top, header стили __________ */
+.top {
+    background-image: url(img-top/topIndex.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 735px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 64px;
+    margin-bottom: 64px;
+    background-color: #eae9f2b4;
+}
+
+.center {
+    padding-left: calc(50% - 600px);
+    padding-right: calc(50% - 600px);
+}
+
+.header {
+    width: 100%;
+    height: 76px;
+    display: flex;
+    justify-content: space-between;
+    
+    align-items: center;
+    border-bottom: 1px solid $color-text;
+
+    &__logo {
+        display: flex;
+        text-decoration: none;
+        width: 198px;
+    }
+    
+    &__img {
+        width: 100%;
+    }
+    
+    &__search {
+        width: 288px;
+        height: 41px;
+        outline: none;
+        border: 1px solid rgb( 255 , 255 , 255 );
+        border-radius: 20px;
+        font-size: 16px;
+        font-weight: 400;
+        font-family: 'Montserrat', sans-serif;
+        padding: 0 32px;
+        box-sizing: border-box;
+        background-color: transparent;
+        color: $color-text;
+
+        &::placeholder {
+            color: $color-text;
+        }
+    }
+
+    &__menu {
+        display: flex;
+        column-gap: $gap;
+    }
+    
+    &__link {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20px;
+        text-decoration: none;    
+        color: $color-text;
+
+        &:hover {
+            border-bottom: 1px solid #888888;
+        }
+
+        &_none {
+            display: none;
+        }
+    }
+
+    &__menu-mobile {
+        display: none;
+    }
+}
+
+/* Кнопка модального окна по кнопке "Корзина" */
+.btn-modal {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    text-decoration: none;    
+    color: $color-text;
+    cursor: pointer;
+
+    &:hover {
+        border-bottom: 1px solid #888888;
+    }
+}
+
+/* Модальное окно */
+.modal-container {
+    padding: 40px 48px;
+    background-color: #fff;
+}
+
+/* Содержимое модального окна */
+.modal-content {
+    width: 477px;
+
+    &__item {
+        display: grid;
+        grid-template-columns: 144px 1fr 71px;
+        gap: 24px;
+        padding-bottom: 24px;
+
+        &_2 {
+            padding-top: 24px;
+            padding-bottom: 24px;
+            border-top: 0.5px solid #CACDD8;
+        }
+    } 
+    
+    
+    &__place-order {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__img {
+        width: 144px;
+        height: 144px;
+        overflow: hidden;
+        text-align: right;
+
+        & img {
+            height: 100%;
+        }
+    }      
+
+    &__info {
+        h4 {
+            font-weight: 500;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        span {
+            font-weight: 500;
+            font-size: 16px;
+            color: #050505;
+        }
+
+        &-link {
+            display: flex;
+            column-gap: 24px;
+            align-items: center;
+            height: 29px;
+            margin-top: 54px;
+
+            a {
+                font-weight: 400;
+                font-size: 14px;
+                vertical-align: middle;
+                color: #000000;
+            }
+        }
+    }
+
+    &__input-number {        
+        display: flex;
+        justify-content: flex-end;
+
+        input[type="number"] {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            width: 71px;
+            height: 51px;
+            outline: none;
+            border: none;
+            border-radius: 6px;
+            background-color: #F7F6F6;
+            text-align: center;
+            vertical-align: middle;
+        }
+    }
+
+    &__text {
+        font-size: 24px;
+
+        &-style {
+            font-weight: 500;
+        }
+    }
+
+    &__btn {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        width: 207px;
+        height: 40px;
+        border: 1px solid #000000;
+        border-radius: 50px;
+        background-color: #fff;
+        color: #000000;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+            color: $color-text;
+            background-color: #000000;    
+            border: 1px solid #000000;
+            cursor: pointer;
+        }
+    }
+}
+
+.modal-window {    
+    position: relative;
+}
+
+/* Функционал модального окна */
+.modal-window > .modal-trigger {
+    display: none;
+}
+
+.modal-window > .modal-trigger ~ .modal-overlay {
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    position: absolute;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.modal-window > .modal-trigger ~ .modal-container {
+    top: 280px;
+    left: -215px;
+    opacity: 0;
+    z-index: 110;
+    position: absolute;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    transform: translate(-50%, -50%);
+}
+
+.modal-window > .modal-trigger:checked ~ .modal-overlay,
+.modal-window > .modal-trigger:checked ~ .modal-container {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/*__________ section-top стили __________ */
+.section-top {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+
+    &__heading {
+        font-size: 64px;
+        font-weight: 600;
+        line-height: 70px;
+        color: $color-text;
+        max-width: 768px;
+    }
+
+    &__text {
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 32px;
+        color: $color-text;
+    }
+    
+    &__link {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        text-decoration-line: underline;
+        color: $color-text;
+    }
+}
+
+
+/*__________ for стили __________ */
+
+.for {
+    margin-bottom: 64px;
+    
+    &__heading {
+        font-size: 48px;
+        font-weight: 600;
+        line-height: 59px;
+        margin-bottom: 32px;
+        color: #000000;
+    }
+    
+    &__content {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: $gap;
+    }
+    
+    &__item {
+        height: 415px;
+        grid-column: span 4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & h3 {        
+            color: $color-text;
+            font-weight: 600;
+            font-size: 34px;
+            line-height: 41px;
+        }
+
+        &_big {
+            grid-column: span 6;
+        }
+
+        &_1 {
+            background-image: url(img/for-1.jpg);
+        }
+        
+        &_2 {
+            background-image: url(img/for-2.jpg);
+        }
+        
+        &_3 {
+            background-image: url(img/for-3.jpg);
+        }
+        
+        &_4 {
+            background-image: url(img/for-4.jpg);
+        }
+        
+        &_5 {
+            background-image: url(img/for-5.jpg);
+        }
+    }    
+}
+
+
+/*__________ product-box стили __________ */
+
+.product-box {
+    &__heading {
+        text-decoration: none;        
+        margin-bottom: 32px;
+        font-size: 48px;
+        font-weight: 600;
+        line-height: 59px;
+        margin-bottom: 32px;
+        color: #000000;       
+    }
+
+    &__sale {
+        margin-bottom: 72px;
+    }
+
+    &__catalog {
+        margin-bottom: 40px;
+    }
+}
+
+.product-content {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: $gap;
+    row-gap: 56px;
+}
+
+.product {
+    width: 378px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    &:hover &__btn {
+        display: flex;
+    }
+
+    &__btn {
+        display: none;
+        gap: 21px;
+        height: 24px;
+        position: absolute;
+        top: 11px;
+        right: 12px;
+    }
+
+    &__btn-icons {
+        cursor: pointer;
+
+        &_favorite {
+            margin-top: 2px;
+        }
+    }
+
+    &__img {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    &__heading {
+        text-decoration: none;        
+        margin-bottom: 8px;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 29px;
+        color: #000000;
+    }
+
+    & h4 {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 29px;
+        color: #000000;
+    }    
+    
+    &__text {
+        font-size: 14px;
+        line-height: 17px;
+        margin-bottom: 12px;
+        color: #888888;
+    }
+
+    &__price-box {
+        display: flex;
+        column-gap: $gap;
+    }
+    
+    &__price {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 29px;
+        color: #050505;
+
+        &_old {
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 29px;
+            color: #888888;
+            text-decoration: line-through;
+        }
+    }
+    
+}
+
+
+/*__________ link-box стили __________ */
+.link-box {
+    margin-bottom: 64px;
+
+    &__catalog {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0%;
+        color: #000000;
+        text-decoration: underline;
+
+        &:hover {
+            color: #888888;
+            text-decoration: none;
+        }
+        
+    }
+}
+
+
+/*__________ footer стили __________ */
+
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    height: 207px;
+    border: 1px;
+    background-color: #F7F6F6;
+    box-sizing: border-box;
+
+    &__logo {
+        width: 198px;
+            
+        &-img {
+            width: 100%;
+        }
+    }
+
+    &__content {
+        width: 792px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    
+    &__info {
+        display: flex;
+        column-gap: 129px;
+    }
+    
+    &__nav-item {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    &__heading {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 29px;
+        color: #000000;
+    }
+    
+    &__menu-list {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    &__link {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 17px;
+        color: #888888;
+
+        &:hover {
+            border-bottom: 1px solid #888888;
+        }
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        gap: 12px; 
+    }
+    
+    &__icons {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        &-hover:hover path {
+            fill: #000000;
+        }
+    }
+    
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    &__text {
+        display: flex;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 15px;
+        color: #000000;
+    }
+    
+    &__input {
+        width: 260px;
+        height: 40px;
+        font-size: 12px;
+        font-weight: 400;
+        font-family: 'Montserrat', sans-serif;
+        line-height: 15px;
+        color: #C4C4C4;
+        background-color: $color-text;
+        border: 1px solid #C4C4C4;
+        border-radius: 16px;
+        box-sizing: border-box;
+        padding: 12px 17px;
+        outline: none;
+
+        &::placeholder {
+            color: #C4C4C4;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 15px;
+        }
+    }
+
+    &__btn {
+        width: 260px;
+        height: 40px;
+        font-size: 12px;
+        font-weight: 400;
+        font-family: 'Montserrat', sans-serif;
+        line-height: 15px;
+        color: #000000;
+        background-color: #DED7D769;
+        border-radius: 16px;
+        border: 1px solid #DED7D769;
+        padding: 12px 0;
+        box-sizing: border-box;
+
+        &:hover {
+            color: $color-text;
+            background-color: #000000;    
+            border: 1px solid #000000;
+            cursor: pointer;
+        }
+    }
+
+    & a {
+        text-decoration: none;
+    }    
+}
+
+@import 'tablet';
+@import 'mobile';
+
+
+
+
+
+

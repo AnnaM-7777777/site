@@ -1,0 +1,99 @@
+@media (max-width: 1024px) {
+
+    /*__________ top, header стили __________ */
+    .center {
+        padding-left: calc(50% - 393px);
+        padding-right: calc(50% - 393px);
+    }
+
+    .top-cart {
+        margin-bottom: 66px;
+    }    
+
+    /* Функционал модального окна */
+    .modal-window > .modal-trigger ~ .modal-container {
+        top: 280px;
+        left: -215px;
+    }
+
+
+    /*__________ for стили __________ */    
+    .for {
+        &__content {
+            gap: 30px;
+        }
+        
+        &__item {
+            height: 265px;
+    
+            &_big {
+                height: 268px;
+            }
+        }
+    }
+
+
+    /*__________ filter стили __________ */
+    .filter-form {
+        right: 0;  
+    }
+
+    .filter-modal > .filter-modal__trigger ~ .filter-modal__window {
+        top: 330px;
+        left: 149px;       
+    }
+    
+    
+    /* __________  cart  __________ */
+    .cart {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        gap: 64px;
+    }
+
+    .cart-content {
+        height: auto;
+
+        &__item_2 {
+            padding-bottom: 33px;
+        }
+    }
+    
+
+    /*__________ product-box стили __________ */    
+    .product-box {    
+        &__sale {
+            margin-bottom: 64px;
+        }
+    }    
+    
+    .product-content {
+        column-gap: 29px;
+        row-gap: 39px;
+    }
+
+    
+    /*__________ footer стили __________ */
+    
+    .footer {
+        &__logo {
+            display: none;
+        }
+    
+        &__content {
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 833px) {
+
+    .center {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .product {
+        width: 343px;
+    }
+}

@@ -1,0 +1,602 @@
+@media (max-width: 767px) {
+
+    /*__________ top, top-catalog, top-cart, header стили __________ */    
+    .top,
+    .top-catalog{
+        padding-top: 32px;
+        margin-bottom: 32px;
+    }
+
+    .top-cart {
+        padding-top: 32px;
+        margin-bottom: 92px;
+    }
+
+    .center {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    
+    .header {
+        width: 100%;
+        height: 57px;
+        border-bottom: none;
+        display: flex;
+        justify-content: space-between;
+        box-sizing: border-box;
+    
+        &__img {
+            width: 99px;
+        }
+        
+        &__search {
+            display: none;
+        }
+    
+        &__menu {
+            display: none;
+        }
+        
+        &__menu-mobile {
+            display: flex;
+            align-items: center;
+            column-gap: 32px;
+        }
+
+        &__menu-link {
+                text-decoration: none;
+            }
+    }
+
+    .modal-window {
+        display: none;
+    }
+    
+    
+    /*__________ section-top стили __________ */    
+    .section-top {
+        text-align: center;
+    
+        &__heading {
+            font-size: 48px;
+            line-height: 59px;
+        }
+    
+        &__text {
+            font-size: 16px;
+        }
+        
+        &__link {
+            font-size: 14px;
+        }
+    }
+    
+    
+    /*__________ filter/filter-container стили __________ */
+    .filter {
+        display: flex;
+        justify-content: center;
+    }
+
+    .filter-box {
+        width: 343px;
+        align-self: flex-start;
+        display: flex;
+        flex-direction: column;
+        row-gap: 14px;
+        align-items: flex-start;
+        box-sizing: border-box;
+    }
+
+    .filter-menu {
+        &__link {
+            font-size: 14px;
+        }
+
+        &__text {
+            font-size: 14px;
+        }
+    }
+
+    .filter-container {
+        display: flex;
+        flex-direction: column-reverse;
+        row-gap: 10px;
+        width: auto;
+        z-index: 1;
+
+        &__button-wrapper {
+            display: flex;
+            flex-direction: column-reverse;
+            row-gap: 10px;
+        }
+
+        &__button {
+            width: 164px;
+            padding-left: 19px;
+            padding-right: 22px;
+
+            &-text {
+                font-size: 14px;            
+            }
+        }
+
+        &__select {    
+            width: 203px;
+            padding-left: 19px;
+            padding-right: 22px;
+
+            &-sort {
+                font-size: 14px; 
+            }
+        }
+    }
+    
+    .filter-form {
+        right: 58px;
+
+        &__content-wrapper {
+            max-height: 830px;
+            min-width: 190px;
+        }
+    }
+
+    .filter-modal > .filter-modal__trigger ~ .filter-modal__window {
+        top: 520px;
+        left: 125px;
+        padding-left: 16px;
+    }
+
+    
+    /*__________ for стили __________ */    
+    .for {
+        margin-bottom: 32px;
+        width: 343px;
+        display: flex;
+        flex-direction: column;      
+        align-self: center;
+
+        &__heading {
+            font-size: 24px;
+            line-height: 29px;
+        }
+        
+        &__content {
+            display: flex;
+            flex-direction: column;
+            row-gap: 16px;
+        }
+        
+        &__item {
+            width: 343px;
+            height: 375px;
+            font-size: 28px;
+            line-height: 34px;
+    
+            &_big {
+                width: 343px;
+                height: 244px;
+            }
+        }
+    }
+
+
+    /* __________  cart  __________ */
+    .cart {
+        display: grid;
+        grid-template-columns: auto;
+        gap: 48px;
+        justify-items: center;
+    }
+
+    .cart-content {
+        width: 343px;
+        height: auto;
+        grid-column: span 4;
+
+        &__name-box {
+            display: none;
+        }
+
+        &__item {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 253px auto;
+            gap: 19px;         
+            padding-top: 18px;
+            padding-bottom: 24px;
+        }
+        
+        &__item_2 {
+            padding-top: 18px;
+            padding-bottom: 32px;
+        }
+        
+        &__btn-box {
+            display: flex;
+            gap: 14px;
+        }
+
+        &__img {
+            display: none;
+        }      
+
+        &__info {
+            h4 {
+                font-size: 18px;
+                margin-bottom: 8px;
+            }
+
+            p {
+                font-size: 12px;
+                margin-bottom: 15px;
+            }
+
+            span {
+                font-size: 12px;
+                margin-bottom: 15px;
+            }
+        }
+
+        &__btn {
+            font-size: 12px;
+            width: 166px;
+        }
+    }     
+
+    .cart-form {
+        width: 343px;
+
+        &__input-box {
+            margin-right: 28px;
+        }
+    }
+    
+    
+    /*__________ product-box стили __________ */    
+    .product-box {  
+        width: 343px;     
+        align-self: center;
+
+        &__heading {
+            font-size: 24px;
+            line-height: 29px;
+        }
+
+        &__sale {
+            margin-bottom: 36px;
+        }
+
+        &__catalog {
+            margin-bottom: 36px;
+        }
+    }
+    
+    .product-content {
+        display: flex;
+        flex-direction: column;
+        row-gap: $gap;
+    }
+    
+    .product {
+        width: 343px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+        &__heading {
+            font-size: 18px;
+            line-height: 22px;
+        }
+        
+        &__price {
+            font-size: 18px;
+            line-height: 22px;
+    
+            &_old {
+                font-size: 18px;
+                line-height: 22px;
+            }
+        }   
+        
+    }
+    
+    
+    /*__________ link-box стили __________ */    
+    .link-box {
+        margin-bottom: 32px;
+        width: 343px;     
+        align-self: center;
+    }
+    
+    
+    /*__________ footer стили __________ */    
+    .footer {
+        padding-top: 33px;
+        width: 100%;
+        height: 363px;
+        box-sizing: border-box;
+    
+        &__content {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;            
+            align-items: center;            
+            row-gap: 70px;      
+            width: 100%;
+        }
+        
+        &__info {
+            width: 343px;
+            display: flex;
+            justify-content: space-between;
+            column-gap: 0;         
+        } 
+    }
+}
+
+@media (max-width: 374px) {
+    
+    /*__________ top, header стили __________ */    
+    .top {
+        height: 400px;
+        padding-top: 28px;
+        margin-bottom: 28px;
+    }
+
+    .center {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+    
+    .header {
+        &__logo {
+            width: 8rem;
+        }
+
+        &__menu-mobile {
+            column-gap: 1.5rem;
+        }
+    }
+    
+    
+    /*__________ section-top стили __________ */    
+    .section-top {    
+        &__heading {
+            font-size: 2.5rem;
+            line-height: 3.5rem;
+        }
+    
+        &__text {
+            font-size: 1rem;
+            margin-bottom: 12px;
+        }
+        
+        &__link {
+            font-size: 0.875rem;
+        }
+    }
+
+
+    /*__________ filter стили __________ */
+    .filter-box {
+        width: 100%;
+        align-self: flex-start;
+        display: flex;
+        flex-direction: column;
+        row-gap: 14px;
+        box-sizing: border-box;
+
+        &__svg {
+            width: 7vw;
+        }
+    }
+
+    .filter-menu {
+        &__link {
+            font-size: 1.1rem;
+        }
+
+        &__text {
+            font-size: 1.1rem;
+        }
+    }
+
+    .filter-container {
+        display: flex;
+        flex-direction: column-reverse;
+        row-gap: 10px;
+        width: auto;
+        z-index: 1;
+
+        &__button-wrapper {
+            display: flex;
+            flex-direction: column-reverse;
+            row-gap: 10px;
+        }
+
+        &__button {
+            width: 60vw;
+
+            &-text {
+                font-size: 1.1rem;            
+            }
+        }
+    }
+
+    .filter-modal {
+
+        /* Кнопка модального окна по кнопке "Фильтрация" */
+        &__btn {
+            width: 45vw;
+            font-size: 1.1rem;
+
+            &-text {
+                font-size: 1.1rem;            
+            }
+        }
+    }
+
+    .filter-form {
+        &__legend {
+            font-size: 1.1rem;
+        }
+
+        &__button {
+            font-size: 1.1rem;
+        }
+
+    }
+
+    .filter-select {
+        width: 55vw;
+
+        &__sort {
+            font-size: 1.1rem; 
+        }        
+    }
+
+    
+    /*__________ for стили __________ */    
+    .for {
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 28px;
+
+        &__heading {
+            font-size: 2rem;
+            margin-bottom: 28px;
+        }
+        
+        &__item {
+            width: 100%;
+            height: 85vw;
+            font-size: 1.5rem;
+    
+            &_big {
+                width: 100%;
+                height: 55vw;
+            }
+        }
+    }
+    
+    
+    /*__________ product-box стили __________ */    
+    .product-box {  
+        width: auto;     
+
+        &__heading {
+            font-size: 2rem;
+            margin-bottom: 28px;
+        }
+
+        &__sale {
+            margin-bottom: 28px;
+        }
+
+        &__catalog {
+            margin-bottom: 28px;
+        }
+    }
+    
+    .product-content {
+        display: flex;
+        flex-direction: column;
+        row-gap: $gap;
+    }
+    
+    .product {
+        width: auto;
+
+        &__heading {
+            font-size: 1.1rem;
+        }
+
+        &__text {
+            font-size: 0.9rem;
+        }
+        
+        &__price {
+            font-size: 1.1rem;
+    
+            &_old {
+                font-size: 1.1rem;
+            }
+        }   
+        
+    }
+    
+    
+    /*__________ link-box стили __________ */
+    
+    .link-box {
+        width: auto;
+        align-self: flex-start;
+        margin-bottom: 28px;
+
+        &__catalog {
+            font-size: 1.2rem;
+        }
+    }
+    
+    
+    /*__________ footer стили __________ */
+    
+    .footer {
+        padding-top: 28px;
+        padding-bottom: 28px;
+        width: auto;
+        height: auto;
+    
+        &__content {
+            justify-content: flex-start;         
+            align-items: flex-start;
+            row-gap: 50px;      
+            width: 100%;
+        }
+        
+        &__info {    
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            column-gap: 0;   
+            row-gap: 50px;          
+            width: auto;    
+        }
+
+        &__nav-item {
+            gap: 8px;
+        }
+
+        &__heading {
+            font-size: 2rem;
+        }
+
+        &__menu-list {
+            gap: 8px;
+        }
+
+        &__link {
+            font-size: 1.1rem;
+        }
+
+        &__text {
+            display: flex;
+            font-size: 1rem;
+        }
+        
+        &__input {
+            width: 90vw;
+            font-size: 1rem;
+
+            &::placeholder {
+                font-size: 1rem;
+            }
+        }
+
+        &__btn {
+            width: 90vw;
+            font-size: 1rem;
+        }
+    }
+}
